@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Loading } from "../Loading";
 
 interface ScreenshotButtonProps {
-  onScreenshotTook: (screenshot: string) => void;
+  onScreenshotTook: (screenshot: string | null) => void;
   screenshot: string;
 }
 
@@ -30,6 +30,7 @@ export function ScreenshotButton({onScreenshotTook, screenshot} :ScreenshotButto
         style={{
           backgroundImage: `url(${screenshot})`,
         }}
+        onClick={() => onScreenshotTook(null)}
       >
         <Trash weight="fill" />
       </button>
